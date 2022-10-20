@@ -26,7 +26,9 @@ class App {
         this.express.use(
             cors({
                 credentials: true,
-                origin: [config.clientUrl],
+                origin: '*',
+                methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+                preflightContinue: true,
             })
         );
         this.express.use(morgan('dev'));
